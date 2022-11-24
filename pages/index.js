@@ -35,6 +35,7 @@ export default function Home(props) {
         {/* first table row (header) */}
         <thead>
           <tr>
+            <th>Rank</th>
             <th>Symbol</th>
             <th>24HR</th>
             <th>Price</th>
@@ -45,9 +46,11 @@ export default function Home(props) {
         <tbody>
           {data.map(coin => (
             <tr key = {coin.id}>
+              <td>{coin.market_cap_rank}</td>
               <td>
                 <img src = {coin.image} style = {{width: 25, height: 25, marginRight: 10}}></img>
-                {coin.symbol.toUpperCase()}</td>
+                {coin.symbol.toUpperCase()}
+              </td>
               <td>
                 <span 
                   className={coin.price_change_percentage_24h > 0 ? ('text-success') : ('text-danger')}>
