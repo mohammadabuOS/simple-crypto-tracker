@@ -36,9 +36,10 @@ export default function Home(props) {
         <thead>
           <tr>
             <th>Rank</th>
-            <th>Symbol</th>
-            <th>24HR</th>
+            <th>Name</th>
+            <th>Ticker</th>
             <th>Price</th>
+            <th>24HR</th>
             <th>Market Cap</th>
           </tr>
         </thead>
@@ -49,15 +50,18 @@ export default function Home(props) {
               <td>{coin.market_cap_rank}</td>
               <td>
                 <img src = {coin.image} style = {{width: 25, height: 25, marginRight: 10}}></img>
+                {coin.name}
+              </td>
+              <td>
                 {coin.symbol.toUpperCase()}
               </td>
+              <td>{formatDollar(coin.current_price, 20)}</td>
               <td>
                 <span 
                   className={coin.price_change_percentage_24h > 0 ? ('text-success') : ('text-danger')}>
                   {formatPercent(coin.price_change_percentage_24h)}
                 </span>
               </td>
-              <td>{formatDollar(coin.current_price, 20)}</td>
               <td>{formatDollar(coin.market_cap, 20)}</td>
             </tr>
           ))}
