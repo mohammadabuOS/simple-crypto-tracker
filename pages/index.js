@@ -8,8 +8,14 @@ export default function Home(props) {
   const {data} = props.result;
   //console.log(data)
 
-  const formatPercent = number =>
-    `${new Number(number).toFixed(2)}%`
+  const formatPercent = number => {
+    if (Math.sign(number) > 0) {
+      return '▲ ' + `${new Number(Math.abs(number)).toFixed(2)}%`
+    }
+    else {
+      return '▼ ' + `${new Number(Math.abs(number)).toFixed(2)}%`
+    }
+  }
 
   const formatDollar = (number, maximumSignificantDigits) =>
     new Intl.NumberFormat(
@@ -39,7 +45,7 @@ export default function Home(props) {
             <th>Name</th>
             <th>Ticker</th>
             <th>Price</th>
-            <th>24HR</th>
+            <th>24hr</th>
             <th>Market Cap</th>
           </tr>
         </thead>
