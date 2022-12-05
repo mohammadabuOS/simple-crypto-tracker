@@ -31,7 +31,7 @@ export default function Home(props) {
 
       <h1>Simple Crypto Tracker</h1>
 
-      <table className='table'>
+      <table className='content-table'>
         {/* first table row (header) */}
         <thead>
           <tr>
