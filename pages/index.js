@@ -64,7 +64,7 @@ export default function Home(props) {
               <td>{formatDollar(coin.current_price, 20)}</td>
               <td>
                 <span 
-                  className={coin.price_change_percentage_24h > 0 ? ('text-success') : ('text-danger')}>
+                  className={coin.price_change_percentage_24h >= 0 ? ('text-success') : ('text-danger')}>
                   {formatPercent(coin.price_change_percentage_24h)}
                 </span>
               </td>
